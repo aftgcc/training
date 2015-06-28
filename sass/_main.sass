@@ -1,0 +1,618 @@
+// Normally mainpage styles
+.return
+	width: 30px
+	height: 30px
+	text-align: center
+	position: fixed
+	z-index: 100
+	left: 50px
+	bottom: 30px
+.return a
+	display: block
+	width: 100%
+	height: 100%
+.purple
+	color: #9f449b
+.is_hidden
+	visibility: hidden
+%quote
+	word-wrap: break-word
+	background: #676767 url('../img/quote_bg.jpg')
+	+cover
+	line-height: 320px
+	+fs(15)
+	text-align: center
+	*
+		display: inline-block
+	.wr
+		vertical-align: middle
+		line-height: 100%
+		p
+			color: #FFF
+	i
+		position: relative
+		+s(cell)
+		b
+			+center
+%heading
+	position: relative
+	display: block
+	text-align: center
+	margin: 50px auto
+	padding: 10px
+	width: 170px
+	+fs(26)
+	.angle
+		position: absolute
+		width: 20px
+		height: 20px
+	.lb
+		left: 0
+		bottom: 0
+		border: 
+			left: 1px solid #9f449b
+			bottom: 1px solid #9f449b
+	.rt
+		right: 0
+		top: 0
+		border: 
+			top: 1px solid #9f449b
+			right: 1px solid #9f449b
+			
+// -------------------------- header ----------------------------
+
+.h
+	padding-top: 50px 
+	background: #363 url('../img/h_bgr.jpg') 0 0 no-repeat
+	background-size: 100% 100%
+	color: #FFF
+	text-align: center
+	letter-spacing: 3px
+	.h__info
+		width: 100%
+		margin: 40px auto 0
+		h2
+			line-height: 1 
+			font-size: 26px
+			.is_small
+				display: inline-block
+				letter-spacing: 1px 
+				margin-top: 25px 
+				font-size: 15px
+	.h__nav
+		display: block
+		width: 770px
+		height: 280px
+		margin: 0 auto
+		position: relative
+		li
+			list-style: none
+			display: block
+			width: 300px
+			line-height: 280px
+		.is_left
+			float: left
+		.is_right
+			float: right
+		.is_center
+			+c(1,90px)
+		li a,.is_center a
+			vertical-align: bottom
+			position: relative
+			display: inline-block
+			text-decoration: none
+			margin: 5px 5px 30px
+			+s(cell)
+			&:hover
+				+s(cell-hover)
+			span
+				+fs(10)
+				letter-spacing: 1px 
+				line-height: 1.4em
+				color: #FFF 
+				position: absolute
+				bottom: 22%
+				left: 50%
+				transform: translateX(-50%)
+				vertical-align: bottom
+		li b,.is_center b
+			display: block
+			+c(0.59,36%)
+		@each $s in "settings","user","bubble","photo","pen","paperplane"
+			.#{$s}
+				+s($s)
+		.nav__scroller
+			position: absolute
+			bottom: -50px
+			left: 44.16%
+			a
+				position: relative
+				display: inline-block
+				+s(scroller)
+				&:hover
+					+s(scr-hover)
+				transform: scale(.6)
+				margin-top: -65px
+			b
+				+s(arrow)
+				+center
+
+// -------------------------- main navigation menu & features ------------------------
+
+.wrapper
+	background-color: #eee
+	.l
+		width: 100%
+		background-color: #fff
+		.main_nav
+			margin: 0 auto
+			padding-left: 25px
+			width: 770px
+			h3,ul,li
+				display: inline-block
+			ul
+				text-align: right
+				width: 600px
+				li
+					margin-right: 10px
+					a
+						text-decoration: none
+						color: #676767
+						&:hover
+							color: #9f449b
+	.feature
+		+fs(9)
+		margin: 100px auto 0
+		text-align: center
+		.feature__item
+			display: inline-block
+			margin: 0 10px
+			width: 210px
+		i
+			display: block
+			position: relative
+			margin: 0 auto
+			+s(cell-feature)
+			b
+				display: inline-block
+				+center
+		a
+			text-decoration: none
+			color: #676767
+			width: 100%
+			height: 100%
+			display: block
+			span
+				+fs(13)
+				display: inline-block
+				margin: 20px 0
+@each $s in 'heart','diamond','cup','phone'
+	.#{$s} a b
+		+s($s)
+	.#{$s} a:hover i
+		+s(cell-feature-hover)
+		& b
+			+s(#{$s}-hover)
+
+// -------------------------- about ----------------------------
+
+.about
+	margin: 0 auto
+	padding-top: 20px
+	color: #676767
+	position: relative
+	.about__heading
+		@extend %heading
+	img,p
+		display: inline-block
+		margin-bottom: 100px
+	p
+		position: absolute
+		top: 0
+		right: 10px
+		width: 350px
+		margin-top: 210px
+	.about__btn
+		display: block
+		position: absolute
+		bottom: 116px
+		right: 200px
+		background-color: #9f449b 
+		width: 160px
+		height: 50px
+		border-radius: 5px
+		box-shadow: 0 4px 0 0 #6b2e68
+		color: #f9f4f9
+		&:hover
+			+opacity(0.8)
+.quote
+	@extend %quote
+	i b
+		+s(study)
+	.wr
+		width: 370px
+		
+// -------------------------- team ----------------------------
+
+.team
+	.team__heading
+		@extend %heading
+	margin: 0 auto
+	padding-top: 20px
+	color: #676767
+	.team__arrows
+		width: 120px
+		height: 56px
+		margin: 0 auto
+		padding: 30px 0
+		.arr
+			display: inline-block
+			&:hover
+				+opacity(0.8)
+				cursor: pointer
+		.arr_left
+			+s(team-arrow-left)
+		.arr_right
+			+s(team-arrow-right)
+	#slide1:checked ~ .team__slider .item:first-child
+		margin-left: 0
+	#slide1:checked ~ .team__slider .item:last-child
+		+opacity(0)
+	#slide2:checked ~ .team__slider .item:first-child
+		margin-left: -1100px
+		+opacity(0)
+	.team__slider
+		width: 900px
+		height: 400px
+		margin: 20px auto
+		overflow: hidden
+		.inner
+			width: 1950px
+			height: 400px
+			.item
+				width: 900px
+				height: 400px
+				margin-right: 150px
+				&:last-child
+					margin-right: 0
+				float: left
+				transition: margin 0.5s ease-in-out, opacity .2s ease-in-out
+		.members
+			height: 400px
+			width: 200px
+			float: left
+			margin-left: 150px
+			text-align: center
+			word-wrap: break-word
+			&:first-child
+				margin-left: 0
+			.member__photo
+				background: #aeaeae
+				border-radius: 50%
+				margin: 0 auto
+				width: 190px
+				height: 190px
+			.member__name
+				+fs
+				color: #484848
+				margin-top: 40px
+			.member__prof
+				+fs(10)
+				margin-top: 5px
+			.social
+				+fs(14)
+				text-decoration: none
+				color: #484848 
+				display: inline-block
+				margin: 10px 5px
+				width: 37px
+				height: 37px
+				line-height: 34px
+				border-radius: 50%
+				border: 1px solid #777
+				
+// -------------------------- experience ----------------------------
+
+.experience
+	margin: 120px 0 0
+	.experience__heading
+		@extend %heading
+	.graphs
+		padding-top: 30px
+		width: 900px
+		min-height: 250px
+		margin: 60px auto 20px
+		text-align: justify
+		line-height: 110px
+		&::after
+			content: ''
+			display: inline-block
+			width: 100%
+		.graph
+			width: 400px
+			min-height: 100px
+			display: inline-block
+			position: relative
+		.graph__name
+			+fs
+			position: absolute
+			line-height: 1em
+			color: #222
+			font-weight: bold
+			top: 15px
+		.graph__percent
+			position: absolute
+			top: 10px
+			line-height: 1em
+			right: -5px
+			+fs(20)
+			font-weight: normal
+			color: #777
+		.graph__line
+			position: absolute
+			bottom: 10px
+			width: 100%
+			min-height: 20px
+			background-color: #f0f0f0
+			.inner_line
+				width: 100%
+				background-color: #9F449B 
+				min-height: 20px
+			.l1
+				width: 90%
+			.l2
+				width: 70%
+			.l3
+				width: 75%
+			.l4
+				width: 85%
+.services
+	@extend %quote
+	i b
+		+s(bubble)
+	.wr
+		width: 350px
+		
+// -------------------------- statistics & quotes in slider ----------------------------
+
+.stats_quotes
+	background-color: #eee
+	.statistics
+		max-width: 900px
+		min-width: 300px 
+		height: 170px
+		line-height: 170px
+		margin: 0 auto
+		padding-top: 90px
+		text-align: justify
+		&::after
+			content: ''
+			display: inline-block
+			width: 100%
+		.stat__item
+			display: inline-block
+			line-height: 1em
+			text-align: center
+			width: 150px
+			.item__num
+				display: block
+				+fs(30)
+				margin-bottom: 20px
+			.item__caption
+				color: #777
+	.stats_quotes__slider
+		width: 900px
+		height: 400px
+		margin: 40px auto
+		overflow: hidden
+		.slider__inner
+			width: 600%
+			height: 100%
+			+transition(margin .5s ease)
+			.quotes
+				width: 900px
+				height: 100%
+				float: left
+				text-align: center
+		span
+			display: block
+			word-wrap: break-word
+			color: #676767
+			margin: 20px 0
+		.quote__photo img
+			border-radius: 50% 
+		.quote__comment
+			+fs(20)
+	.stats_quotes__slider_controls
+		width: 130px
+		height: 15px
+		margin: 20px auto
+		.control
+			float: left
+			margin-left: 5px
+			&:first-child
+				margin-left: 0
+			width: 15px
+			height: 15px
+			border-radius: 50% 
+			border: 1px solid #676767
+			&::after
+				content: ''
+				display: block
+				width: 100%
+				height: 100%
+				border-radius: 50%
+				+opacity(0)
+				+transition(opacity .3s ease-in-out)
+	#quote1:checked ~ .stats_quotes__slider .slider__inner
+		margin-left: 0
+	#quote2:checked ~ .stats_quotes__slider .slider__inner
+		margin-left: -100%
+	#quote3:checked ~ .stats_quotes__slider .slider__inner
+		margin-left: -200%
+	#quote4:checked ~ .stats_quotes__slider .slider__inner
+		margin-left: -300%
+	#quote5:checked ~ .stats_quotes__slider .slider__inner
+		margin-left: -400%
+	#quote6:checked ~ .stats_quotes__slider .slider__inner
+		margin-left: -500%
+	#quote1:checked ~ .stats_quotes__slider_controls label:nth-child(1)::after,
+	#quote2:checked ~ .stats_quotes__slider_controls label:nth-child(2)::after,
+	#quote3:checked ~ .stats_quotes__slider_controls label:nth-child(3)::after,
+	#quote4:checked ~ .stats_quotes__slider_controls label:nth-child(4)::after,
+	#quote5:checked ~ .stats_quotes__slider_controls label:nth-child(5)::after,
+	#quote6:checked ~ .stats_quotes__slider_controls label:nth-child(6)::after
+		background-color: #676767
+		+opacity(1)
+
+// -------------------------- portfolio ----------------------------
+
+.portfolio
+	margin: -55px auto 0
+	padding-top: 40px
+	background-color: #FFF
+	text-align: center 
+	.portfolio__heading
+		@extend %heading
+		width: 250px
+	.portfolio__categories
+		width: 450px
+		margin: 0 auto
+		padding-top: 40px
+		.category_btn
+			display: inline-block
+			width: 85px
+			height: 40px
+			line-height: 40px
+			margin: 5px
+			border-radius: 5px
+			background-color: #FFF 
+			border: 1px solid black
+			&:hover
+				background-color: #9f449b
+				border: 1px solid #9f449b
+				color: #FFF 
+				+opacity(.8)
+				cursor: pointer
+	#btn1:checked ~ .portfolio__categories label:nth-child(1),
+	#btn2:checked ~ .portfolio__categories label:nth-child(2),
+	#btn3:checked ~ .portfolio__categories label:nth-child(3),
+	#btn4:checked ~ .portfolio__categories label:nth-child(4)
+		background-color: #9f449b
+		border: 1px solid #9f449b
+		color: #FFF 
+	.portfolio__content
+		width: 900px
+		height: 750px
+		margin: 40px auto 0
+		.portfolio__item
+			float: left
+			margin: 17px
+			position: relative
+			img
+				width: 265px
+				height: 265px
+				display: block
+			#caption
+				display: block
+				margin: 10px 0 0
+				+fs
+			.item_hover
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 265px
+				line-height: 265px
+				vertical-align: middle
+				font-size: 320px
+				color: #FFF
+				background-color: rgba(0,0,0,0.4)
+				+opacity(0)
+				+transition(opacity .25s ease)
+			&:hover
+				.item_hover
+					+opacity(1)
+					cursor: pointer
+	.portfolio_btn
+		background-color: #9f449b 
+		width: 160px
+		height: 50px
+		border-radius: 5px
+		box-shadow: 0 4px 0 0 #6b2e68
+		color: #f9f4f9
+		margin-bottom: 40px
+		&:hover
+			+opacity(0.8)
+
+// -------------------------- concacts ----------------------------
+
+.contact
+	margin: 50px auto
+	position: relative
+	.contact__heading
+		@extend %heading
+		width: 250px
+	.contact_l
+		width: 100%
+		border: 1px solid red		
+	#contact_form
+		position: absolute
+		top: 190px
+		left: 0
+		width: 350px
+		height: 400px
+		input,textarea
+			border: 1px solid #808080
+			color: #222
+			+fs(14)
+			padding: 23px 10px 23px 30px
+			margin: 20px 40px 10px 20px
+			width: 350px
+			+placeholder
+				color: #222
+		textarea
+			+fs(18)
+		#subm_btn
+			background-color: #9f449b 
+			width: 160px
+			height: 50px
+			padding: 0
+			border-radius: 5px
+			box-shadow: 0 4px 0 0 #6b2e68
+			color: #f9f4f9
+			margin-bottom: 40px
+			&:hover
+				+opacity(0.8)
+	.contact__info
+		float: right
+		margin-top: 75px
+		width: 430px
+		height: 600px
+		+fs(12)
+		color: #4b4b4b
+		.is_bold
+			font-weight: bold
+			+fs(15)
+		.social__links
+			.social__link
+				text-decoration: none
+				text-align: center
+				vertical-align: middle
+				display: inline-block
+				width: 70px
+				height: 70px
+				line-height: 68px
+				margin: 40px 30px 0 0
+				border-radius: 50%
+				border: 1px solid #CDCDCD
+				color: #222 
+				+fs(25)
+.footer
+	line-height: 0
+	div
+		display: inline-block
+		+fs(35)
+		width: 100%
+		height: 100px
+		text-align: center
